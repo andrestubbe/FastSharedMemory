@@ -1,26 +1,14 @@
-# FastSharedMemory Reference
+# FastSharedMemory API Reference
 
-## 1. CPU Feature Model
-*   **AVX2** — detected via CPUID. Enables 32-byte vector ops.
-*   **SSE4.2** — detected via CPUID. 16-byte fallback.
-*   **Fallback rule**: AVX2 → SSE4.2 → scalar.
+## Class `fastsharedmemory.SharedMemory`
 
-## 2. Guarantees
-*   **Zero-Copy**: All operations use `GetPrimitiveArrayCritical` for direct memory access.
-*   **Unaligned Access**: Safe on all byte boundaries.
-*   **Thread-Safety**: All static native methods are thread-safe.
+### Allocation & IPC Mapping
+- `SharedMemory.create(String name, long size)`: Creates a named shared memory mapping.
+- `SharedMemory.open(String name, long size)`: Opens an existing named shared memory mapping.
 
-## 3. JNI & Memory Contracts
-*   **Direct Memory Pinning**: No implicit copies are made by the JNI bridge.
-*   **No Allocation**: All operations work on pre-allocated Java arrays or buffers.
-*   **Critical Sections**: Native calls minimize blocking to prevent GC impact.
-
-## 4. Platform Support
-| Platform | Status |
-|----------|--------|
-| Windows 10/11 (x64) | ✅ Fully Supported |
-
----
-**Part of the FastJava Ecosystem** — *Making the JVM faster.*
-
-Made with ⚡ by Andre Stubbe
+### Operation
+- `pointer()`: Returns a `Pointer` pointing to the mapped shared memory block.
+- `address()`: Returns the primitive 64-bit `long` address.
+- `size()`: Returns total byte capacity.
+- `name()`: Returns the Win32 IPC mapping name.
+- `free()` / `close()`: Unmaps and closes the shared memory mapping.
