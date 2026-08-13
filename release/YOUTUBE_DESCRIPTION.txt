@@ -1,0 +1,29 @@
+TITLE:
+FastSharedMemory: Ultra-Fast Zero-Copy IPC & Shared RAM Mappings for Java 🚀
+
+DESCRIPTION:
+Demonstrating FastSharedMemory, a native Win32 Named Shared Memory mapped file library for Java. Enables zero-copy Inter-Process Communication (IPC) across multiple Java JVMs and C++ processes with microsecond latency.
+
+TECHNICAL HIGHLIGHTS:
+- Win32 Named Shared Memory: Direct CreateFileMapping and MapViewOfFile native bindings.
+- Zero-Copy Architecture: Share multi-megabyte buffers between separate OS processes without copy overhead.
+- Native Pointer Integration: Works directly with FastPointer address arithmetic.
+- Multi-Process Synchronization: Safe cross-process memory segment creation, opening, and closing.
+
+RESULTS:
+- IPC Latency: Sub-microsecond zero-copy read/write operations
+- Throughput: Limited only by system RAM bandwidth
+
+FASTJAVA SYSTEM REPOSITORIES:
+1. FastPointer: https://github.com/andrestubbe/FastPointer
+2. FastMemory: https://github.com/andrestubbe/FastMemory
+3. FastSIMD: https://github.com/andrestubbe/FastSIMD
+4. FastSharedMemory: https://github.com/andrestubbe/FastSharedMemory
+
+Ecosystem Overview: https://github.com/andrestubbe/FastJava
+
+Part of the FastJava Ecosystem — Making the JVM faster.
+Made with ⚡ by Andre Stubbe
+
+TAGS:
+Java, FastJava, FastSharedMemory, IPC, Shared Memory, Win32, Zero Copy, Memory Mapped Files, C++, JNI
