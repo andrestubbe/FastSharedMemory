@@ -101,6 +101,21 @@ Add the JitPack repository and dependencies to your `pom.xml`:
 
 ---
 
+## Technical Examples & Benchmarks
+
+See the `examples/` directory for interactive technical implementations and official JMH benchmarks:
+
+| Benchmark Case | Description | Java Example | JMH Benchmark |
+|---|---|---|---|
+| **Zero-Copy IPC** | Win32 Named Shared Memory mapping throughput & latency | [Demo.java](examples/Demo.java) | [JMH_SharedMemory.java](examples/src/main/java/fastsharedmemory/benchmark/JMH_SharedMemory.java) |
+
+### Run JMH Benchmarks via Script
+```cmd
+run-benchmark.bat
+```
+
+---
+
 ## Documentation
 
 * **[Description.md](docs/Description.md)**: Architectural overview and core module capabilities.
@@ -119,6 +134,15 @@ Add the JitPack repository and dependencies to your `pom.xml`:
 | Windows 10/11 (x64) | ✅ Fully Supported |
 | Linux (POSIX shm_open) | 🚧 Planned |
 | macOS (POSIX shm_open) | 🚧 Planned |
+
+---
+
+## Related Projects
+
+- [FastMemory](https://github.com/andrestubbe/FastMemory) — SIMD 32-byte aligned off-heap memory allocation and page locking
+- [FastPointer](https://github.com/andrestubbe/FastPointer) — Zero-overhead native address arithmetic
+- [FastSIMD](https://github.com/andrestubbe/FastSIMD) — Hardware vector acceleration engine (AVX2, AVX-512, NEON)
+- [FastCore](https://github.com/andrestubbe/FastCore) — Native JNI loader for FastJava libraries
 
 ---
 
