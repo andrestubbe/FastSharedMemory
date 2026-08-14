@@ -14,18 +14,6 @@
 
 ---
 
-## Table of Contents
-
-- [Key Features](#key-features)
-- [Quick Start](#quick-start)
-- [API Reference](#api-reference)
-- [Installation](#installation)
-- [Documentation](#documentation)
-- [Platform Support](#platform-support)
-- [License](#license)
-
----
-
 ## Quick Start
 
 ```java
@@ -46,6 +34,20 @@ public class Demo {
     }
 }
 ```
+
+---
+
+---
+
+## Table of Contents
+
+- [Key Features](#key-features)
+- [Quick Start](#quick-start)
+- [API Reference](#api-reference)
+- [Installation](#installation)
+- [Documentation](#documentation)
+- [Platform Support](#platform-support)
+- [License](#license)
 
 ---
 
