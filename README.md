@@ -1,4 +1,4 @@
-# FastSharedMemory 0.1.1 [ALPHA] — Ultra-Fast Native Zero-Copy IPC for Java
+# FastSharedMemory 0.1.1 [ALPHA-2026-08] — Ultra-Fast Native Zero-Copy IPC for Java
 
 [![Status](https://img.shields.io/badge/status-0.1.1-brightgreen.svg)](https://github.com/andrestubbe/FastSharedMemory/releases/tag/0.1.1)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
