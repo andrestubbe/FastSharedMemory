@@ -39,15 +39,26 @@ public class Demo {
 
 ## Table of Contents
 
+- [Why FastSharedMemory?](#why-fastsharedmemory)
 - [Key Features](#key-features)
 - [Real-World Use Cases](#real-world-use-cases)
 - [Performance Benchmarks](#performance-benchmarks)
-- [Quick Start](#quick-start)
+- [FastJava Native Memory Substrate](#fastjava-native-memory--hardware-substrate)
 - [API Reference](#api-reference)
 - [Installation](#installation)
 - [Documentation](#documentation)
 - [Platform Support](#platform-support)
 - [License](#license)
+
+---
+
+## Why FastSharedMemory?
+
+Standard Java Inter-Process Communication (IPC) techniques (TCP Sockets, gRPC, Named Pipes, or stdin/stdout streaming) introduce heavy serialization overhead, OS context switches, and network protocol stack latencies. `FastSharedMemory` provides:
+
+- **Zero-Copy Native IPC (< 78 ns Latency)** — Exchange data directly between independent Java processes or native C++/Python applications via Windows Named Shared Memory (`CreateFileMapping` / `MapViewOfFile`).
+- **Zero OS Context Switching & Network Overhead** — Eliminate TCP socket and pipe serialization bottlenecks, enabling sub-microsecond message passing between local processes (8.14+ Million msg/sec).
+- **Zero-GC Shared Buffers** — Share gigabytes of raw video frames (`FastRobot`), audio streams (`FastSTT`), and tensor buffers across processes completely outside the JVM Garbage Collector.
 
 ---
 
@@ -77,7 +88,18 @@ Benchmark                                    Mode  Cnt      Score   Error  Units
 JMH_SharedMemory.benchmarkIPCTransfer        thrpt    2 8142000.500          ops/s
 ```
 
-> **8.14 Million Messages per Second**: `FastSharedMemory` transfers binary messages across OS processes in **under 78 nanoseconds per message** with zero OS context switching overhead.
+---
+
+## FastJava Native Memory & Hardware Substrate
+
+`FastSharedMemory` is part of the core **FastJava Low-Level Native Memory Substrate**, designed to grant Java applications raw C++ speed and direct hardware access:
+
+| Substrate Module | Role & Key Capability |
+| :--- | :--- |
+| **`FastSharedMemory`** | **Zero-Copy IPC Substrate** — Ultra-fast inter-process shared memory buffers (< 78 ns latency) between Java processes and native C++ services. |
+| **`FastPointer`** | **64-Bit Native Pointer Abstraction** — Zero-allocation address arithmetic, handle casting (`HWND`, `HANDLE`), and off-heap struct navigation. |
+| **`FastMemory`** | **Off-Heap Direct Allocator** — High-speed 32-byte / 64-byte SIMD aligned off-heap memory management and physical RAM page locking (`VirtualLock`). |
+| **`FastSIMD`** | **AVX2 / Vector Acceleration** — 256-bit SIMD hardware vectorization for memory scanning, math operations, and array sweeps. |
 
 ---
 
