@@ -3,6 +3,9 @@ dontinline,*.*_avgt_jmhStub
 dontinline,*.*_sample_jmhStub
 dontinline,*.*_ss_jmhStub
 dontinline,*.*_thrpt_jmhStub
+inline,fastsharedmemory/benchmark/FastSharedMemoryBenchmark.setup
+inline,fastsharedmemory/benchmark/FastSharedMemoryBenchmark.tearDown
+inline,fastsharedmemory/benchmark/FastSharedMemoryBenchmark.testAddressAccess
 inline,fastsharedmemory/benchmark/JMH_SharedMemory.setup
 inline,fastsharedmemory/benchmark/JMH_SharedMemory.tearDown
 inline,fastsharedmemory/benchmark/JMH_SharedMemory.testSharedMemoryAddress

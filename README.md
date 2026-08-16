@@ -37,8 +37,6 @@ public class Demo {
 
 ---
 
----
-
 ## Table of Contents
 
 - [Key Features](#key-features)
@@ -112,6 +110,13 @@ Add the JitPack repository and dependencies to your `pom.xml`:
     <dependency>
         <groupId>com.github.andrestubbe</groupId>
         <artifactId>FastSharedMemory</artifactId>
+        <version>0.1.2</version>
+    </dependency>
+
+    <!-- FastPointer (Required Dependency) -->
+    <dependency>
+        <groupId>com.github.andrestubbe</groupId>
+        <artifactId>FastPointer</artifactId>
         <version>0.1.1</version>
     </dependency>
 
@@ -119,10 +124,32 @@ Add the JitPack repository and dependencies to your `pom.xml`:
     <dependency>
         <groupId>com.github.andrestubbe</groupId>
         <artifactId>FastCore</artifactId>
-        <version>0.1.1</version>
+        <version>0.1.0</version>
     </dependency>
 </dependencies>
 ```
+
+### Option 2: Gradle (via JitPack)
+
+```groovy
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.andrestubbe:FastSharedMemory:0.1.2'
+    implementation 'com.github.andrestubbe:FastPointer:0.1.1'
+    implementation 'com.github.andrestubbe:FastCore:0.1.0'
+}
+```
+
+### Option 3: Direct Download (No Build Tool)
+
+Download the latest JARs directly to add them to your classpath:
+
+1. ⚡ **[FastSharedMemory-0.1.2.jar](https://github.com/andrestubbe/FastSharedMemory/releases/download/0.1.2/FastSharedMemory-0.1.2.jar)** (IPC Shared Memory Engine)
+2. 📌 **[FastPointer-0.1.1.jar](https://github.com/andrestubbe/FastPointer/releases/download/0.1.1/FastPointer-0.1.1.jar)** (Required Address Arithmetic)
+3. ⚙️ **[fastcore-0.1.0.jar](https://github.com/andrestubbe/FastCore/releases/download/0.1.0/fastcore-0.1.0.jar)** (Mandatory Native JNI Loader)
 
 ---
 
