@@ -42,11 +42,12 @@ public class Demo {
 ## Table of Contents
 
 - [Why FastSharedMemory?](#why-fastsharedmemory)
+- [Quick Start](#quick-start)
 - [Key Features](#key-features)
 - [Real-World Use Cases](#real-world-use-cases)
 - [Performance Benchmarks](#performance-benchmarks)
 - [FastJava Native Memory Substrate](#fastjava-native-memory--hardware-substrate)
-- [API Reference](#api-reference)
+- [API Quick Reference](#api-quick-reference)
 - [Installation](#installation)
 - [Documentation](#documentation)
 - [Platform Support](#platform-support)
@@ -105,14 +106,17 @@ JMH_SharedMemory.benchmarkIPCTransfer        thrpt    2 8142000.500          ops
 
 ---
 
-## API Reference
+## API Quick Reference
 
-### `SharedMemory`
-- `SharedMemory.create(String name, long size)`: Creates a new named shared memory mapping.
-- `SharedMemory.open(String name, long size)`: Opens an existing named shared memory mapping.
-- `pointer()`: Returns a `Pointer` pointing to the mapped shared memory block.
-- `address()`: Returns the primitive `long` memory address.
-- `close()` / `free()`: Unmaps and closes the shared memory mapping.
+| Method | Description | Docs |
+|---|---|---|
+| `SharedMemory.create(name, size)` | Creates a new named Win32 shared memory file mapping. | [Reference](docs/REFERENCE.md) |
+| `SharedMemory.open(name, size)` | Opens an existing named Win32 shared memory file mapping. | [Reference](docs/REFERENCE.md) |
+| `pointer()` | Returns a `Pointer` instance pointing to the mapped shared memory. | [Reference](docs/REFERENCE.md) |
+| `address()` | Returns the underlying primitive 64-bit `long` memory address. | [Reference](docs/REFERENCE.md) |
+| `size()` | Returns the shared memory capacity in bytes. | [Reference](docs/REFERENCE.md) |
+| `name()` | Returns the Win32 IPC mapping name. | [Reference](docs/REFERENCE.md) |
+| `free()` / `close()` | Unmaps memory view and closes the native OS file mapping handle. | [Reference](docs/REFERENCE.md) |
 
 ---
 
