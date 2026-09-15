@@ -48,6 +48,7 @@ public class Demo {
 - [Performance Benchmarks](#performance-benchmarks)
 - [FastJava Native Memory Substrate](#fastjava-native-memory--hardware-substrate)
 - [API Quick Reference](#api-quick-reference)
+- [Technical Demos & Benchmarks](#technical-demos--benchmarks)
 - [Installation](#installation)
 - [Documentation](#documentation)
 - [Platform Support](#platform-support)
@@ -120,6 +121,15 @@ JMH_SharedMemory.benchmarkIPCTransfer        thrpt    2 8142000.500          ops
 
 ---
 
+## Technical Demos & Benchmarks
+
+| Case | Java Example | Launcher | Description |
+|---|---|---|---|
+| **Zero-Copy IPC Shared Memory** | [Demo.java](examples/Demo.java) | `run-demo.bat` | End-to-end Win32 Named Shared Memory IPC demonstration with FastPointer integration. |
+| **JMH Microbenchmark Suite** | [Benchmark.java](examples/Benchmark/src/main/java/fastsharedmemory/benchmark/Benchmark.java) | `run-benchmark.bat` | OpenJDK JMH throughput & latency test suite measuring shared memory mapping and address access throughput. |
+
+---
+
 ## Installation
 
 ### Option 1: Maven (Recommended)
@@ -179,22 +189,6 @@ Download the latest JARs directly to add them to your classpath:
 2. 📌 **[FastPointer-0.1.1.jar](https://github.com/andrestubbe/FastPointer/releases/download/0.1.1/FastPointer-0.1.1.jar)** (Required Address Arithmetic)
 3. ⚙️ **[fastcore-0.1.0.jar](https://github.com/andrestubbe/FastCore/releases/download/0.1.0/fastcore-0.1.0.jar)** (Mandatory Native JNI Loader)
 
----
-
-## Technical Examples & Benchmarks
-
-See the `examples/` directory for interactive technical implementations and official JMH benchmarks:
-
-| Benchmark Case | Description | Java Example | JMH Benchmark |
-|---|---|---|---|
-| **Zero-Copy IPC** | Win32 Named Shared Memory mapping throughput & latency | [Demo.java](examples/Demo.java) | [JMH_SharedMemory.java](examples/src/main/java/fastsharedmemory/benchmark/JMH_SharedMemory.java) |
-
-### Run JMH Benchmarks via Script
-```cmd
-run-benchmark.bat
-```
-
----
 
 ## Documentation
 

@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 @Fork(1)
 @Warmup(iterations = 2, time = 1)
 @Measurement(iterations = 3, time = 1)
-public class JMH_SharedMemory {
+public class Benchmark {
 
     private SharedMemory sharedMem;
 
@@ -24,7 +24,7 @@ public class JMH_SharedMemory {
         sharedMem.close();
     }
 
-    @Benchmark
+    @org.openjdk.jmh.annotations.Benchmark
     public long testSharedMemoryAddress() {
         return sharedMem.address();
     }
