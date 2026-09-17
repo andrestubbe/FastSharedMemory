@@ -63,6 +63,17 @@ Standard Java Inter-Process Communication (IPC) techniques (TCP Sockets, gRPC, N
 - **Zero OS Context Switching & Network Overhead** — Eliminate TCP socket and pipe serialization bottlenecks, enabling sub-microsecond message passing between local processes (8.14+ Million msg/sec).
 - **Zero-GC Shared Buffers** — Share gigabytes of raw video frames (`FastRobot`), audio streams (`FastSTT`), and tensor buffers across processes completely outside the JVM Garbage Collector.
 
+FastSharedMemory maps shared physical RAM directly into primitive 64-bit memory addresses:
+
+| Feature | TCP Loopback (`127.0.0.1`) | Named Pipes (`\\.\pipe\`) | FastSharedMemory |
+|:---|:---|:---|:---|
+| **Data Transfer Mechanism**| TCP/IP stack + buffer copy | Kernel FIFO pipe buffer | **Direct Shared RAM (`MapViewOfFile`)** |
+| **Transfer Latency** | 25–60 µs (Network stack) | 5–15 µs (OS syscalls) | **< 78 ns (Direct Pointer Read)** |
+| **Throughput (1 KB msgs)** | ~100,000 msgs/sec | ~500,000 msgs/sec | **> 8,140,000 ops/sec** |
+| **Heap Allocations (IPC)** | High (`byte[]` + stream buffers)| Moderate (Pipe buffers) | **0 Bytes (Direct Off-Heap Pointer)** |
+| **Large Payload Handling** | Severe memory duplication | Buffer size limits | **Zero-Copy (Gigabyte Video/Tensors)**|
+| **Dependencies** | JDK standard lib | JNA / External wrapper | **Pure Java 17+ backed by FastCore** |
+
 ---
 
 ## Key Features
